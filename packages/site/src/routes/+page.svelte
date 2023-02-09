@@ -10,7 +10,7 @@
 <div class="m-5 flex flex-col justify-items-center gap-2 text-white md:gap-4 lg:gap-6">
 	<img src={logo} alt="Svelte Tampa Bay Logo" class="mx-auto" />
 	<h1 class="mx-auto my-9 text-3xl md:text-4xl lg:text-6xl">Welcome to Svelte Tampa Bay</h1>
-	<div class="text-center text-xl font-light leading-7 md:px-11  lg:px-56 lg:text-3xl lg:leading-9">
+	<div class="lg:px-50 text-center text-xl font-light leading-7  md:px-11 lg:text-3xl lg:leading-9">
 		<p>
 			Join a community of passionate developers and take your skills with the Svelte framework to
 			the next level. Our mission is to build a local community for knowledge sharing,
@@ -18,7 +18,7 @@
 		</p>
 		<p class="p-4">Ready to be a part of the revolution?</p>
 	</div>
-	<div class="flex  items-center justify-center gap-2 md:gap-4 lg:gap-6">
+	<div class="flex  items-center justify-center gap-6">
 		<a href={siteSettings.twitter} target="_blank" rel="noreferrer">
 			<svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 fill-[#FF3E00]" viewBox="0 0 24 24"
 				><path
@@ -34,7 +34,7 @@
 			></a
 		>
 	</div>
-	<div class="mt-8 bg-black bg-opacity-80 md:mx-16 lg:mx-80">
+	<div class="mt-4 bg-black bg-opacity-80 md:mx-16 lg:mx-48">
 		<form method="POST" action="?/subscribe">
 			<div class="flex flex-col p-5">
 				<label for="email" class="sr-only">Email address</label>
