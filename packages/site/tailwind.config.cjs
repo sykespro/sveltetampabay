@@ -1,0 +1,8 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+	content: ['./src/**/*.{html,js,svelte,ts}', '../../packages/components/src/**/*.svelte'],
+	theme: {
+		extend: {}
+	},
+	plugins: [require('@tailwindcss/forms')]
+};
