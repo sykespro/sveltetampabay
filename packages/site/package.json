@@ -38,6 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@mailchimp/mailchimp_marketing": "^3.0.80",
 		"@sveltetampabay/components": "workspace:^0.0.1"
 	}
 }
