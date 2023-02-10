@@ -1,6 +1,8 @@
 <script lang="ts">
 	import logo from '$lib/assets/svelte-tampabay-logo.png';
 	import { siteSettings } from '$lib/configs/site';
+
+	export let form;
 </script>
 
 <svelte:head>
@@ -8,8 +10,8 @@
 	<meta name="description" content={siteSettings.description} />
 </svelte:head>
 <div class="m-5 flex flex-col justify-items-center gap-2 text-white md:gap-4 lg:gap-6">
-	<img src={logo} alt="Svelte Tampa Bay Logo" class="mx-auto" />
-	<h1 class="mx-auto my-9 text-3xl md:text-4xl lg:text-6xl">Welcome to Svelte Tampa Bay</h1>
+	<img src={logo} width="225px" height="225px" alt="Svelte Tampa Bay Logo" class="mx-auto" />
+	<h1 class="mx-auto my-5 text-3xl md:text-4xl lg:text-6xl">Welcome to Svelte Tampa Bay</h1>
 	<div class="lg:px-50 text-center text-xl font-light leading-7  md:px-11 lg:text-3xl lg:leading-9">
 		<p>
 			Join a community of passionate developers and take your skills with the Svelte framework to
@@ -34,15 +36,37 @@
 			></a
 		>
 	</div>
-	<div class="mt-4 bg-black bg-opacity-80 md:mx-16 lg:mx-48">
+	<div class="mt-4 bg-black bg-opacity-80 pb-4 md:mx-16 lg:mx-48">
 		<form method="POST" action="?/subscribe">
 			<div class="flex flex-col p-5">
+				{#if form?.errors?.email}
+					<div
+						class="mb-4 border-l-4 border-orange-500 bg-orange-100 p-4 text-orange-700"
+						role="alert"
+					>
+						<p class="font-bold">Not Subscribed</p>
+						<p>{form?.errors?.email[0]}</p>
+					</div>
+				{/if}
+				{#if form?.status == 200 || form?.status == 500}
+					<div
+						class="mb-4 border-l-4 border-green-500 bg-green-100 p-4 text-green-700"
+						role="alert"
+					>
+						<p class="font-bold">Subscribed</p>
+						<p>{form?.body.message}</p>
+					</div>
+				{/if}
 				<label for="email" class="sr-only">Email address</label>
 				<input
+					value={form?.data?.email ?? ''}
 					placeholder="Email Address"
-					type="email"
+					type="text"
 					name="email"
-					class="mb-3 h-10 p-3 text-gray-900 focus:outline-none focus:ring-1 focus:ring-[#FF3E00] focus:ring-offset-1"
+					class="mb-3 h-10  p-3 text-gray-900 focus:outline-none focus:ring-1 focus:ring-[#FF3E00] focus:ring-offset-1 {form
+						?.errors?.email
+						? 'border-2 border-red-500'
+						: ''} "
 				/>
 				<button
 					class=" border border-transparent bg-[#FF3E00] px-4 py-2 text-lg font-medium text-white hover:bg-[#FF3E00] focus:outline-none focus:ring-2 focus:ring-[#FF3E00] focus:ring-offset-2"
@@ -50,5 +74,8 @@
 				>
 			</div>
 		</form>
+		<div class="text-center text-base font-thin text-gray-300">
+			We will only notify you when there are updates with the community. No spam, we promise!
+		</div>
 	</div>
 </div>

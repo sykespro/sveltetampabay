@@ -1,30 +1,44 @@
 import type { Actions } from './$types';
 import mailchimp from '$lib/services/mailchimp';
+import { z } from 'zod';
+
+const subscribeSchema = z.object({
+	email: z.string().email({ message: 'Email must be a valid email address' })
+});
 
 export const actions: Actions = {
 	subscribe: async ({ request }) => {
+		const formData = Object.fromEntries(await request.formData());
+
 		try {
-			const data = await request.formData();
-			const email = data.get('email');
-
-			console.log(email);
-
-			//const result = await mailchimp.subscribeToNewsletter(email);
-
-			const ping = await mailchimp.ping();
-
-			console.log(ping);
-
-			//return {
-			//	status: result.status,
-			//	body: result
-			//};
+			subscribeSchema.parse(formData);
 		} catch (error) {
-			console.log(error);
+			const { fieldErrors: errors } = error.flatten();
 			return {
-				status: 500,
-				body: error
+				data: formData,
+				errors
 			};
 		}
+
+		try {
+			const { email } = formData;
+			await mailchimp.subscribeToNewsletter(email);
+		} catch (err) {
+			return {
+				status: 500,
+				body: {
+					succuss: true,
+					message: 'It appears you have already subscribed. Thank you.'
+				}
+			};
+		}
+
+		return {
+			status: 200,
+			body: {
+				succuss: true,
+				message: 'Thank you for subscribing!'
+			}
+		};
 	}
 };

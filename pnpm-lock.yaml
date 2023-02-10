@@ -30,9 +30,11 @@ importers:
       typescript: ^4.9.3
       vite: ^4.0.0
       vitest: ^0.25.3
+      zod: ^3.20.6
     dependencies:
       '@mailchimp/mailchimp_marketing': 3.0.80
       '@sveltetampabay/components': link:../components
+      zod: 3.20.6
     devDependencies:
       '@playwright/test': 1.30.0
       '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.0
@@ -2463,3 +2465,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod/3.20.6:
+    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
+    dev: false

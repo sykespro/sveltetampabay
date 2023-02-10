@@ -16,7 +16,7 @@ async function subscribeToNewsletter(email) {
 		email_address: email,
 		status: 'subscribed'
 	});
-	console.log(response);
+	return response;
 }
 
 const mailchimp = {
