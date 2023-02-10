@@ -11,8 +11,12 @@
 </svelte:head>
 <div class="m-5 flex flex-col justify-items-center gap-2 text-white md:gap-4 lg:gap-6">
 	<img src={logo} width="225px" height="225px" alt="Svelte Tampa Bay Logo" class="mx-auto" />
-	<h1 class="mx-auto my-5 text-3xl md:text-4xl lg:text-6xl">Welcome to Svelte Tampa Bay</h1>
-	<div class="lg:px-50 text-center text-xl font-light leading-7  md:px-11 lg:text-3xl lg:leading-9">
+	<h1 class="mx-auto my-5 text-3xl antialiased md:text-4xl lg:text-6xl">
+		Welcome to Svelte Tampa Bay
+	</h1>
+	<div
+		class="lg:px-50 text-center text-xl font-light leading-7 antialiased  md:px-11 lg:text-3xl lg:leading-9"
+	>
 		<p>
 			Join a community of passionate developers and take your skills with the Svelte framework to
 			the next level. Our mission is to build a local community for knowledge sharing,
@@ -74,7 +78,7 @@
 				>
 			</div>
 		</form>
-		<div class="text-center text-base font-thin text-gray-300">
+		<div class="text-center text-base font-thin tracking-wide text-gray-300 antialiased">
 			We will only notify you when there are updates with the community. No spam, we promise!
 		</div>
 	</div>
