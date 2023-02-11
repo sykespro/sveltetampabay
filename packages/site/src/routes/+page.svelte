@@ -22,7 +22,7 @@
 			the next level. Our mission is to build a local community for knowledge sharing,
 			collaboration, and networking, so you can grow, learn, and build amazing things together.
 		</p>
-		<p class="p-4">Ready to be a part of the revolution?</p>
+		<p class="p-4">Ready to be a part of the movement?</p>
 	</div>
 	<div class="flex  items-center justify-center gap-6">
 		<a href={siteSettings.twitter} target="_blank" rel="noreferrer">
