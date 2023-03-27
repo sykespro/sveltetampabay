@@ -28,7 +28,7 @@ export const actions: Actions = {
 				status: 500,
 				body: {
 					succuss: true,
-					message: 'It appears you have already subscribed. Thank you.'
+					message: 'Awesome! It appears you have already subscribed. Thank you.'
 				}
 			};
 		}
